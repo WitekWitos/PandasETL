@@ -1,2 +1,0 @@
-import padnas as pd
-
