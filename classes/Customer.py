@@ -1,5 +1,3 @@
-#import string
-
 
 class Customer:
     def __init__(self,name,age,sex,type,):
