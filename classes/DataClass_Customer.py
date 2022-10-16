@@ -29,4 +29,7 @@ def ReviewOfService(x):
         elif x == 'no' or x == 'No' or x == 'NO':
             print('We are very sorry')
         else:
-            print('Hm that is weird...')    
+            print('Hm that is weird...')
+def IsMale(self):
+        return self.sex == 'Male'
+    
