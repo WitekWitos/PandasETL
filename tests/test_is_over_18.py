@@ -1,5 +1,5 @@
 import unittest
-from classes.Customer import Customer
+from classes.customer import Customer
 
 
 def test_is_not_over_18():

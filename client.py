@@ -1,4 +1,5 @@
-from classes.Customer import Customer
+from classes.customer import Customer
+
 
 customer1 = Customer('John',25,'Male','private customer')
 customer2 = Customer('Sara',46,'female','bussiness customer')

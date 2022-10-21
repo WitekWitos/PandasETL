@@ -7,6 +7,8 @@
 import io
 import os
 import sys
+import pathlib
+
 
 
 from setuptools import find_packages, setup 
