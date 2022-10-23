@@ -1,10 +1,10 @@
-
 class Customer:
     def __init__(self,name,age,sex,type,):
         self.name = name
         self.age = age
         self.sex = sex
         self.type = type
+        
         
         
     def IsOver18(self):
@@ -30,6 +30,8 @@ class Customer:
             print('We are very sorry')
         else:
             print('Hm that is weird...')
+    def IsMale(self):
+        return self.sex == 'Male'
 
     
         
