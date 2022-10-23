@@ -14,17 +14,14 @@ class Config:
         
         
     def get_dropzone_path(self):
-        #dropzone_path = 'C:\\Users\\1\\Documents\\filesystem\\dropzone\\'+self.file_name+'.csv'
         dropzone_path = json_path_row_1+self.file_name+'.csv'
         return dropzone_path
     
     def get_raw_path(self):
-        #raw_path = 'C:\\Users\\1\\Documents\\filesystem\\raw\\'+self.file_name+'.csv'
         raw_path = json_path_row_2+self.file_name+'.csv'
         return raw_path
     
     def get_standarised_path(self):
-        #standarised_path = 'C:\\Users\\1\\Documents\\filesystem\\standarised\\'+self.file_name+'.csv'
         standarised_path = json_path_row_3+self.file_name+'.csv'
         return standarised_path
       
