@@ -1,2 +1,2 @@
-import padnas as pd
+import pandas as pd
 

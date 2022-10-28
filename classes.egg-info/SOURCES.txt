@@ -1,0 +1,15 @@
+.gitignore
+MANIFEST.in
+README.md
+client.py
+pyvenv.cfg
+requirements.txt
+setup.py
+classes/__init__.py
+classes/config.py
+classes/customer.py
+classes/dataclass_customer.py
+classes.egg-info/PKG-INFO
+classes.egg-info/SOURCES.txt
+classes.egg-info/dependency_links.txt
+classes.egg-info/top_level.txt
