@@ -1,0 +1,14 @@
+.gitignore
+MANIFEST.in
+README.md
+client.py
+pyvenv.cfg
+requirements.txt
+setup.py
+pandasetl/__init__.py
+pandasetl/categories.py
+pandasetl/config.py
+pandasetl.egg-info/PKG-INFO
+pandasetl.egg-info/SOURCES.txt
+pandasetl.egg-info/dependency_links.txt
+pandasetl.egg-info/top_level.txt

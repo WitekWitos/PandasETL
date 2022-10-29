@@ -1,10 +1,10 @@
 
 import pandas as pd
-df = pd.read_csv(r'C:\Users\1\Documents\filesystem\dropzone\categories.csv')
+
 
 class Categories:
-    def __init__(self,row:int):
-        self.row = df.iloc[row]
+    def __init__(self, row):
+        self.row = row
         
     def get_category_name(self):
         return(self.row.categoryName)
