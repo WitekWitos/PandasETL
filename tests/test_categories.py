@@ -1,5 +1,5 @@
 import unittest
-from classes.customer import Customer
+from pandasetl.customer import Customer
 
 
 def test_is_not_over_18():
