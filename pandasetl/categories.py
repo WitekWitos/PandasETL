@@ -1,7 +1,4 @@
 
-import pandas as pd
-
-
 class Categories:
     def __init__(self, row):
         self.row = row
