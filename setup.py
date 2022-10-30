@@ -14,12 +14,12 @@ import pathlib
 from setuptools import find_packages, setup 
 
 # Package meta-data.
-NAME = 'classes'
+NAME = 'pandasetl'
 DESCRIPTION = 'My short description for my project.'
 URL = 'https://github.com/WitekWitos/PandasETL'
 EMAIL = 'witold.piwowarski.pollub@gmail.com'
 AUTHOR = 'Witold Piwowarski'
-REQUIRES_PYTHON = '>=3.10.0'
+REQUIRES_PYTHON = '>=3.7.0'
 VERSION = '0.0.1'
 
 # What packages are required for this module to be executed?
