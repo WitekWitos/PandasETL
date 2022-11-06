@@ -51,7 +51,7 @@ class Employees:
         return(self.row.notes)
     
     def get_reports_To(self):
-        return(self.row.repotsTo)
+        return(self.row.reportsTo)
     
     def get_photo_path(self):
         return(self.row.photoPath)
