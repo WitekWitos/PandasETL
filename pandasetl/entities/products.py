@@ -1,4 +1,4 @@
-class Products:
+class ExtractProducts:
     def __init__(self,row):
         self.row = row
         

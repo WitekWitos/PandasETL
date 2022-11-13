@@ -1,4 +1,4 @@
-class Employee_teritories:
+class ExtractEmployee_territories:
     def __init__(self,row):
         self.row = row
 

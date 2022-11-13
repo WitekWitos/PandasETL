@@ -1,4 +1,4 @@
-class Territories:
+class ExtractTerritories:
     def __init__(self,row):
         self.row = row 
         

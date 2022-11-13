@@ -1,5 +1,5 @@
 
-class Categories:
+class ExtractCategories:
     def __init__(self, row):
         self.row = row
         
