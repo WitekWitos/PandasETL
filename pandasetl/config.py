@@ -23,10 +23,10 @@ class Config:
         raw_path = json_path_row_2 + file_name + '.csv'
         return raw_path
     
-    def get_standarised_path(self, file_name):
+    def get_standardised_path(self, file_name):
         json_path_row_3 = self.json_config.iloc[2].iloc[0]
-        standarised_path = json_path_row_3 + file_name + '.xlsx'
-        return standarised_path
+        standardised_path = json_path_row_3 + file_name + '.parquet'
+        return standardised_path
       
     
         

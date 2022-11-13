@@ -1,0 +1,11 @@
+{
+    "category": {
+        "features": [
+            "categoryName",
+            "categoryID",
+            "description",
+            "picture"
+        ],
+        "partition_col": "categoryName"
+    }
+}

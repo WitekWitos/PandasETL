@@ -1,4 +1,4 @@
-class Shippers:
+class ExtractShippers:
     def __init__(self,row):
         self.row = row
         

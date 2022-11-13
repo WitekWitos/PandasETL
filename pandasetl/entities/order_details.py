@@ -1,4 +1,4 @@
-class Order_details:
+class ExtractOrder_details:
     def __init__(self,row):
         self.row = row
         
