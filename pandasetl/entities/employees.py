@@ -1,4 +1,4 @@
-class Employees:
+class ExtractEmployees:
     def __init__(self,row):
         self.row = row
         

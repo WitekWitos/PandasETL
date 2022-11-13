@@ -1,4 +1,4 @@
-class Regions:
+class ExtractRegions:
     def __init__(self,row):
         self.row = row
         

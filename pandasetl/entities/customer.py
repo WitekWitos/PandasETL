@@ -1,16 +1,16 @@
-class Suppliers:
+class ExtractCustomer:
     def __init__(self,row):
         self.row = row
         
-    def get_supplier_id(self):
-        return(self.row.supplierID)
-    
+    def get_customer_id(self):
+        return(self.row.customerID)
+        
     def get_company_name(self):
-        return(self.row.companyName)
-    
+        return(self.row.companyName)         
+        
     def get_contact_name(self):
-        return(self.row.contactName)
-    
+        return(self.row.contactName) 
+         
     def get_contact_title(self):
         return(self.row.contactTitle)
     
@@ -26,7 +26,7 @@ class Suppliers:
     def get_postal_code(self):
         return(self.row.postalCode)
     
-    def get_country(self):
+    def get_coutry(self):
         return(self.row.country)
     
     def get_phone(self):
@@ -34,6 +34,6 @@ class Suppliers:
     
     def get_fax(self):
         return(self.row.fax)
-    
-    def get_home_page(self):
-        return(self.row.homePage)
+
+
+                                   

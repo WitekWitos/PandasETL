@@ -6,5 +6,9 @@ build
 Lib
 Scripts
 share
+pandasetl.egg-info
+
+
+
 
 
