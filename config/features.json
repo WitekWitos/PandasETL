@@ -1,0 +1,140 @@
+{
+    "category": {
+        "features": [
+            "categoryName",
+            "categoryID",
+            "description",
+            "picture"
+        ],
+        "partition_col": "categoryName"
+    },
+    "customer": {
+        "features": [
+            "customerID", 
+            "companyName", 
+            "contactName", 
+            "contactTitle", 
+            "address", 
+            "city",
+            "region",
+            "postalCode",
+            "country",
+            "phone",
+            "fax"
+        ],
+        "partition_col": "region"
+    },
+    "employee_territories": {
+        "features": [
+            "employeeID",
+            "territoryID"
+        ]
+    },
+    "employees": {
+        "features": [
+            "employeeID",
+            "lastName",
+            "firstName",
+            "title",
+            "titleOfCourtesy",
+            "birthDate",
+            "hireDate",
+            "adress",
+            "city",
+            "region",
+            "postalCode",
+            "country",
+            "homePhone",
+            "extension",
+            "photo",
+            "notes",
+            "reportsTo",
+            "photoPath"
+        ],
+        "partition_col": "lastName"
+    },
+    "order_details": {
+        "features": [
+            "orderID",
+            "productID",
+            "unitPrice",
+            "quantity",
+            "discount"
+        ],
+        "partition_col": "unitPrice"
+    },
+    "orders": {
+        "features": [
+            "orderID",
+            "customerID",
+            "employeeID",
+            "orderDate",
+            "requiredDate",
+            "shippedDate",
+            "shipVia",
+            "freight",
+            "shipName",
+            "shipAddress",
+            "shipCity",
+            "shipRegion",
+            "shipPostalCode",
+            "shipCountry"
+        ],
+        "partition_col": "shipCountry"
+    },
+    "products": {
+        "features": [
+            "productID",
+            "productName",
+            "supplierID",
+            "categoryID",
+            "quantityPerUnit",
+            "unitPrice",
+            "unitsInStock",
+            "unitsOnOrder",
+            "reorderLevel",
+            "getDictontinued"
+        ],
+        "partition_col": "productName"
+    },
+    "region": {
+        "features": [
+            "regionID",
+            "regionDescription"
+        ],
+        "partition_col": "regionDescription"
+    },
+    "shippers": {
+        "features": [
+            "shipperID",
+            "companyName",
+            "phone"
+        ],
+        "partition_col": "companyName"
+    },
+    "suppliers": {
+        "features": [
+            "supplierID",
+            "companyName",
+            "contactName",
+            "contactTitle",
+            "address",
+            "city",
+            "region",
+            "postalCode",
+            "country",
+            "phone",
+            "fax",
+            "homePage"
+        ],
+        "partition_col": "companyName"
+    },
+    "territories": {
+        "features": [
+            "territoryID",
+            "territoryDescription",
+            "regionID"
+        ],
+        "partition_col": "territoryDescription"
+    }
+}

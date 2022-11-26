@@ -1,6 +1,11 @@
 from pandasetl.entities.order_details import ExtractOrder_details
 import pandas as pd
-from config.features import order_details_features
+import json
+
+features_copy = open(r'C:\Users\1\VSC\PandasETL\config\features.json','r', encoding='utf-8')
+data = json.load(features_copy)
+order_details_features = data['order_details']['features']
+partition_col = data['order_details']['partition_col']
 
 
 class PipelineOrder_details:
@@ -13,4 +18,4 @@ class PipelineOrder_details:
                            df_row.get_quantity(), df_row.get_discount()))
         df_transformed = pd.DataFrame(result, columns = order_details_features)
         print(df_transformed.head(3))
-        return df_transformed
+        return df_transformed, partition_col

@@ -1,6 +1,11 @@
 from pandasetl.entities.orders import ExtractOrders
 import pandas as pd
-from config.features import orders_features
+import json
+
+features_copy = open(r'C:\Users\1\VSC\PandasETL\config\features.json','r', encoding='utf-8')
+data = json.load(features_copy)
+orders_features = data['orders']['features']
+partition_col = data['orders']['partition_col']
 
 
 class PipelineOrders:
@@ -15,4 +20,4 @@ class PipelineOrders:
                           df_row.get_ship_postal_code(), df_row.get_ship_country()))
         df_transformed = pd.DataFrame(result, columns = orders_features)
         print(df_transformed.head(3))
-        return df_transformed
+        return df_transformed, partition_col
