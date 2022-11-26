@@ -1,6 +1,11 @@
 from pandasetl.entities.regions import ExtractRegions
 import pandas as pd
-from config.features import region_features
+import json
+
+features_copy = open(r'C:\Users\1\VSC\PandasETL\config\features.json','r', encoding='utf-8')
+data = json.load(features_copy)
+region_features = data['region']['features']
+partition_col = data['region']['partition_col']
 
 class PipelineRegions:
      
@@ -11,4 +16,4 @@ class PipelineRegions:
             result.append((df_row.get_region_id(), df_row.get_region_description()))
         df_transformed = pd.DataFrame(result, columns = region_features)
         print(df_transformed.head(3))
-        return df_transformed
+        return df_transformed, partition_col
