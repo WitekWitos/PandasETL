@@ -1,6 +1,11 @@
 from pandasetl.entities.employees import ExtractEmployees
 import pandas as pd
-from config.features import employees_features
+import json
+
+features_copy = open(r'C:\Users\1\VSC\PandasETL\config\features.json','r', encoding='utf-8')
+data = json.load(features_copy)
+employees_features = data['employees']['features']
+partition_col = data['employees']['partition_col']
 
 class PipelineEmployees:
      
@@ -16,4 +21,4 @@ class PipelineEmployees:
                            df_row.get_photo_path()))
         df_transformed = pd.DataFrame(result, columns = employees_features)
         print(df_transformed.head(3))
-        return df_transformed
+        return df_transformed, partition_col
