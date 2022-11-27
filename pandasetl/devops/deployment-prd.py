@@ -1,13 +1,11 @@
-#Assign the filename
-filename = "deployment_desc.txt"
-# Open file for writing
-fileHandler = open(filename, "w")
+import shutil
+import sys
 
-# Add some text
-fileHandler.write("Dummy\n")
-fileHandler.write("Dummy\n")
-fileHandler.write("Dummy\n")
+arg1 = sys.argv[1]
+arg2 = sys.argv[2]
 
-# Close the file
-fileHandler.close()
+source_path = arg1
+target_path = arg2
+
+shutil.copytree(source_path,target_path)
 
