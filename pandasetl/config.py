@@ -1,6 +1,8 @@
 import pandas as pd
-
-
+import json
+# w tej klasie napisać metody do wyciągania rzeczy i używam konkretnej metody do wyciągnięcia 
+# konkretnych informacji z json
+# przerobić na json.load tak jak w klasach pipelines
 
 class Config:
     def __init__(self, config_path):
@@ -23,12 +25,15 @@ class Config:
         raw_path = json_path_row_2 + file_name + '.csv'
         return raw_path
     
+    #usunąć datę i parquet ze standardised
     def get_standardised_path(self, file_name):
         json_path_row_3 = self.json_config.iloc[2].iloc[0]
         standardised_path = json_path_row_3 + file_name + '.parquet'
         return standardised_path
       
-    
+    #def get_customer_features():
+    # metoda ma zwracać konkretną listę features dla customer
+    #pass
         
         
         
