@@ -1,7 +1,8 @@
 from pandasetl.entities.customer import ExtractCustomer
 import pandas as pd
 import json
-
+#from pandasetl.config import Config
+ 
 features_copy = open(r'C:\Users\1\VSC\PandasETL\config\features.json','r', encoding='utf-8')
 data = json.load(features_copy)
 customer_features = data['customer']['features']
