@@ -10,5 +10,5 @@ pool:
   Default
  
 steps:
-- publish: $(System.DefaultWorkingDirectory)/pandasetl
+- publish: $(System.DefaultWorkingDirectory)/PANDASETL
   artifact: PANDASETL
