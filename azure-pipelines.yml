@@ -28,8 +28,8 @@ steps:
     python setup.py bdist_wheel
   displayName: "Make wheel"
 
-- publish: $(System.DefaultWorkingDirectory)/PANDASETL/dist
+- publish: $(System.DefaultWorkingDirectory)/dist
   artifact: PANDASETL_PACKAGE
-- publish: $(System.DefaultWorkingDirectory)/PANDASETL/notebooks
+- publish: $(System.DefaultWorkingDirectory)/notebooks
   artifact: PANDASETL_NOTEBOOKS
 
