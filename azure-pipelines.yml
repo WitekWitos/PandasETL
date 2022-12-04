@@ -13,7 +13,7 @@ steps:
 - task: UsePythonVersion@0
   inputs:
     versionSpec: "3.10"
-    addPath: true
+    addToPath: true
     architecture: "x64"
 
 - script: |
