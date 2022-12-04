@@ -33,3 +33,4 @@ steps:
   artifact: PANDASETL_PACKAGE
 - publish: $(System.DefaultWorkingDirectory)/PANDASETL/notebooks
   artifact: PANDASETL_NOTEBOOKS
+
