@@ -10,7 +10,9 @@ pool:
   Default
  
 steps:
-- script: dir
+- script: |
+    cd $(System.DefaultWorkingDirectory)\PANDASETL\
+    dir
 
 - script: |
     python -m pip install --upgrade pip
