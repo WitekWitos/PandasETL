@@ -10,7 +10,7 @@ pool:
   Default
  
 steps:
-
+- script: dir
 
 - script: |
     python -m pip install --upgrade pip
