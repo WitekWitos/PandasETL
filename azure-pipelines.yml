@@ -11,13 +11,13 @@ pool:
  
 steps:
 - script: |
-    cd $(System.DefaultWorkingDirectory)\PANDASETL\
+    cd $(System.DefaultWorkingDirectory)
     dir
 
 - script: |
     python -m pip install --upgrade pip
     python -m pip install --upgrade setuptools wheel pytest
-    python -m pip install -r $(System.DefaultWorkingDirectory)\PANDASETL\requirements.txt
+    python -m pip install -r $(System.DefaultWorkingDirectory)\requirements.txt
   displayName: "Install dependencies"
   
 - script: |
