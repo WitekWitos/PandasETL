@@ -1,7 +1,5 @@
-{ 
-        "dropzone_path_customer" : "C:\\Users\\1\\Documents\\filesystem\\dropzone\\",
-        "raw_path_customer" : "C:\\Users\\1\\Documents\\filesystem\\raw\\",
-        "standardised_path" : "C:\\Users\\1\\Documents\\filesystem\\standardised\\" 
-   
+{
+        "dropzone_path_customer": "C:\\Users\\1\\Documents\\filesystem\\dropzone\\",
+        "raw_path_customer": "C:\\Users\\1\\Documents\\filesystem\\raw\\",
+        "standardised_path": "C:\\Users\\1\\Documents\\filesystem\\standardised\\"
 }
-

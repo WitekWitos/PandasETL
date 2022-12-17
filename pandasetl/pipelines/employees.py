@@ -1,11 +1,10 @@
 from pandasetl.entities.employees import ExtractEmployees
+from pandasetl.config import Config
 import pandas as pd
-import json
 
-features_copy = open(r'C:\Users\1\VSC\PandasETL\config\features.json','r', encoding='utf-8')
-data = json.load(features_copy)
-employees_features = data['employees']['features']
-partition_col = data['employees']['partition_col']
+
+employees_features = Config.get_employees_features()
+partition_col = Config.get_employees_partition_col()
 
 class PipelineEmployees:
      
