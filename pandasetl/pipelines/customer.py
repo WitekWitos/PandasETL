@@ -1,13 +1,10 @@
 from pandasetl.entities.customer import ExtractCustomer
+from pandasetl.config import Config
 import pandas as pd
-import json
-#from pandasetl.config import Config
- 
-features_copy = open(r'C:\Users\1\VSC\PandasETL\config\features.json','r', encoding='utf-8')
-data = json.load(features_copy)
-customer_features = data['customer']['features']
-partition_col = data['customer']['partition_col']
 
+
+customer_features = Config.get_customer_features()
+partition_col = Config.get_customer_partition_col()
 
 class PipelineCustomer:
      

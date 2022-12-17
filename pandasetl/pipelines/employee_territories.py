@@ -1,11 +1,10 @@
 from pandasetl.entities.employee_territories import ExtractEmployee_territories
+from pandasetl.config import Config
 import pandas as pd
-import json
 
-features_copy = open(r'C:\Users\1\VSC\PandasETL\config\features.json','r', encoding='utf-8')
-data = json.load(features_copy)
-employee_territories_features = data['employee_territories']['features']
-partition_col = None
+
+employee_territories_features = Config.get_employee_territories_features()
+partition_col = Config.get_employee_territories_partition_col()
 
 class PipelineEmployee_territories:
      
