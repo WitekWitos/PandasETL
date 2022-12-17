@@ -1,11 +1,10 @@
 from pandasetl.entities.products import ExtractProducts
+from pandasetl.config import Config
 import pandas as pd
-import json
 
-features_copy = open(r'C:\Users\1\VSC\PandasETL\config\features.json','r', encoding='utf-8')
-data = json.load(features_copy)
-products_features = data['products']['features']
-partition_col = data['products']['partition_col']
+
+products_features = Config.get_products_features()
+partition_col = Config.get_products_partition_col()
 
 class PipelineProducts:
      

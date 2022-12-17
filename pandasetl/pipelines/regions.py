@@ -1,11 +1,10 @@
 from pandasetl.entities.regions import ExtractRegions
+from pandasetl.config import Config
 import pandas as pd
-import json
 
-features_copy = open(r'C:\Users\1\VSC\PandasETL\config\features.json','r', encoding='utf-8')
-data = json.load(features_copy)
-region_features = data['region']['features']
-partition_col = data['region']['partition_col']
+
+region_features = Config.get_region_features()
+partition_col = Config.get_region_partition_col()
 
 class PipelineRegions:
      

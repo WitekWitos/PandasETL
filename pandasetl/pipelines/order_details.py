@@ -1,11 +1,10 @@
 from pandasetl.entities.order_details import ExtractOrder_details
+from pandasetl.config import Config
 import pandas as pd
-import json
 
-features_copy = open(r'C:\Users\1\VSC\PandasETL\config\features.json','r', encoding='utf-8')
-data = json.load(features_copy)
-order_details_features = data['order_details']['features']
-partition_col = data['order_details']['partition_col']
+
+order_details_features = Config.get_order_details_features()
+partition_col = Config.get_order_details_partition_col()
 
 
 class PipelineOrder_details:

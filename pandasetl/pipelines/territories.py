@@ -1,11 +1,10 @@
 from pandasetl.entities.territories import ExtractTerritories
+from pandasetl.config import Config
 import pandas as pd
-import json
 
-features_copy = open(r'C:\Users\1\VSC\PandasETL\config\features.json','r', encoding='utf-8')
-data = json.load(features_copy)
-territories_features = data['territories']['features']
-partition_col = data['territories']['partition_col']
+
+territories_features = Config.get_territories_features()
+partition_col = Config.get_territories_partition_col()
 
 
 class PipelineTerritories:
