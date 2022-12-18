@@ -15,4 +15,4 @@ class PipelineShippers:
             result.append((df_row.get_shipper_id(), df_row.get_company_name(), df_row.get_phone()))
         df_transformed = pd.DataFrame(result, columns = shippers_features)
         print(df_transformed.head(3))
-        return df_transformed, partition_col
+        return df_transformed

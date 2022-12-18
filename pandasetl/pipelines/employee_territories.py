@@ -15,4 +15,4 @@ class PipelineEmployee_territories:
             result.append((df_row.get_employee_ID(), df_row.get_territory_ID()))
         df_transformed = pd.DataFrame(result, columns = employee_territories_features)
         print(df_transformed.head(3))
-        return df_transformed, partition_col
+        return df_transformed

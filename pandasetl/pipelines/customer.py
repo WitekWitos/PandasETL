@@ -18,4 +18,4 @@ class PipelineCustomer:
                            df_row.get_phone(), df_row.get_fax()))
         df_transformed = pd.DataFrame(result, columns = customer_features)
         print(df_transformed.head(3))
-        return df_transformed, partition_col
+        return df_transformed

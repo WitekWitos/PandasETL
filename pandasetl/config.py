@@ -69,7 +69,7 @@ class Config:
     
     def get_employee_territories_partition_col():
         '''Takes in employee_territories partition_col name from json file and returns them as a variable'''
-        partition_col = None
+        partition_col = features_load['employee_territories']['partition_col']
         return partition_col
 
     def get_employees_features():

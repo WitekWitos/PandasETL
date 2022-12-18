@@ -17,4 +17,4 @@ class PipelineOrder_details:
                            df_row.get_quantity(), df_row.get_discount()))
         df_transformed = pd.DataFrame(result, columns = order_details_features)
         print(df_transformed.head(3))
-        return df_transformed, partition_col
+        return df_transformed
