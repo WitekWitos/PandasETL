@@ -15,4 +15,4 @@ class PipelineRegions:
             result.append((df_row.get_region_id(), df_row.get_region_description()))
         df_transformed = pd.DataFrame(result, columns = region_features)
         print(df_transformed.head(3))
-        return df_transformed, partition_col
+        return df_transformed

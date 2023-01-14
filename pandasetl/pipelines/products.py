@@ -17,4 +17,4 @@ class PipelineProducts:
                           df_row.get_units_on_order(), df_row.get_reorder_level(), df_row.get_discontinued()))
         df_transformed = pd.DataFrame(result, columns = products_features)
         print(df_transformed.head(3))
-        return df_transformed, partition_col
+        return df_transformed
