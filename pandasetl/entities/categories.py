@@ -2,11 +2,15 @@ class ExtractCategories:
     """Extracts values from data frame 'categories'."""
 
     def __init__(self, row):
-        """Assigning the single row from data frame categories to every method."""
+        """
+            Assigning the single row from data frame categories to every method.
+        """
         self.row = row
        
     def get_category_name(self):
-        """Takes in one row with category name from categories table and returns it."""
+        """
+            Takes in one row with category name from categories table and returns it.
+        """
         return(self.row.categoryName)
     
     def get_category_id(self):

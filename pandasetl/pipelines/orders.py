@@ -19,4 +19,4 @@ class PipelineOrders:
                           df_row.get_ship_postal_code(), df_row.get_ship_country()))
         df_transformed = pd.DataFrame(result, columns = orders_features)
         print(df_transformed.head(3))
-        return df_transformed, partition_col
+        return df_transformed

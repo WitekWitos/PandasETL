@@ -20,4 +20,4 @@ class PipelineEmployees:
                            df_row.get_photo_path()))
         df_transformed = pd.DataFrame(result, columns = employees_features)
         print(df_transformed.head(3))
-        return df_transformed, partition_col
+        return df_transformed

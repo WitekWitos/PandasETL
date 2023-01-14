@@ -3,7 +3,6 @@ from pandasetl.config import Config
 import pandas as pd
 
 category_features = Config.get_categories_features()
-partition_col = Config.get_categories_partition_col()
 
 
 class PipelineCategories:
@@ -19,4 +18,4 @@ class PipelineCategories:
             
         df_transformed = pd.DataFrame(result, columns=category_features)
         print(df_transformed.head(3))
-        return df_transformed, partition_col
+        return df_transformed

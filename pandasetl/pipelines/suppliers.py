@@ -18,4 +18,4 @@ class PipelineSuppliers:
                           df_row.get_postal_code(), df_row.get_country(), df_row.get_phone(), df_row.get_fax(), df_row.get_home_page()))
         df_transformed = pd.DataFrame(result, columns = suppliers_features)
         print(df_transformed.head(3))
-        return df_transformed, partition_col
+        return df_transformed

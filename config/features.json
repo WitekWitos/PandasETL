@@ -6,7 +6,7 @@
             "description",
             "picture"
         ],
-        "partition_col": "categoryName"
+        "partition_col": "loadDate"
     },
     "customer": {
         "features": [
@@ -22,13 +22,14 @@
             "phone",
             "fax"
         ],
-        "partition_col": "region"
+        "partition_col": "loadDate"
     },
     "employee_territories": {
         "features": [
             "employeeID",
             "territoryID"
-        ]
+        ],
+        "partition_col": "loadDate"
     },
     "employees": {
         "features": [
@@ -51,7 +52,7 @@
             "reportsTo",
             "photoPath"
         ],
-        "partition_col": "lastName"
+        "partition_col": "loadDate"
     },
     "order_details": {
         "features": [
@@ -61,7 +62,7 @@
             "quantity",
             "discount"
         ],
-        "partition_col": "unitPrice"
+        "partition_col": "loadDate"
     },
     "orders": {
         "features": [
@@ -80,7 +81,7 @@
             "shipPostalCode",
             "shipCountry"
         ],
-        "partition_col": "shipCountry"
+        "partition_col": "loadDate"
     },
     "products": {
         "features": [
@@ -95,14 +96,14 @@
             "reorderLevel",
             "getDictontinued"
         ],
-        "partition_col": "productName"
+        "partition_col": "loadDate"
     },
     "region": {
         "features": [
             "regionID",
             "regionDescription"
         ],
-        "partition_col": "regionDescription"
+        "partition_col": "loadDate"
     },
     "shippers": {
         "features": [
@@ -110,7 +111,7 @@
             "companyName",
             "phone"
         ],
-        "partition_col": "companyName"
+        "partition_col": "loadDate"
     },
     "suppliers": {
         "features": [
@@ -127,7 +128,7 @@
             "fax",
             "homePage"
         ],
-        "partition_col": "companyName"
+        "partition_col": "loadDate"
     },
     "territories": {
         "features": [
@@ -135,6 +136,6 @@
             "territoryDescription",
             "regionID"
         ],
-        "partition_col": "territoryDescription"
+        "partition_col": "loadDate"
     }
 }
