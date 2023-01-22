@@ -11,7 +11,7 @@ stages:
   pool:
       Default
   jobs:
-  - deployment:
+  - deployment: 'Deploy_Prod'
     environment: PROD
 
     strategy:                 
