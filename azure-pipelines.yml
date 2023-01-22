@@ -9,14 +9,13 @@ stages:
  
 
   - stage: 'Deploy_Prod'
-    jobs: 
-    - job: 'Deploy_Prod'
-    - deployment: 'Deploy_Prod'
-      displayName: 'Deploy_Prod'
-      pool:
+    
+    pool:
         Default
-      environment: 'PROD'
+    jobs: 
+    - job: 'Deploy_Prod' 
       steps:
+      - environment: PROD
       - script: |
           cd $(System.DefaultWorkingDirectory)
           dir
@@ -34,9 +33,9 @@ stages:
       - script: |
           python setup.py bdist_wheel
         displayName: "Make wheel"
-
+      
       - publish: $(System.DefaultWorkingDirectory)/dist
         artifact: PANDASETL_PACKAGE
       - publish: $(System.DefaultWorkingDirectory)/notebooks
         artifact: PANDASETL_NOTEBOOKS
-
+      
