@@ -14,8 +14,8 @@ stages:
   - deployment: 'Deploy_Prod'
     displayName: 'Deploy_Prod'
     environment: PROD 
-  - job: 'Deploy_Prod' 
-  
+  - job: 'Build_Artifact' 
+
     steps:
     - script: |
         cd $(System.DefaultWorkingDirectory)
@@ -39,4 +39,4 @@ stages:
       artifact: PANDASETL_PACKAGE
     - publish: $(System.DefaultWorkingDirectory)/notebooks
       artifact: PANDASETL_NOTEBOOKS
-      
+  - job: 'Deploy_Artifact'  
