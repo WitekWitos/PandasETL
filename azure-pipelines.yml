@@ -9,7 +9,8 @@ stages:
  
 
   - stage: 'Deploy_Prod'
-    jobs:  
+    jobs: 
+    - job: 'Deploy_Prod'
     - deployment: 'Deploy_Prod'
       displayName: 'Deploy_Prod'
       pool:
