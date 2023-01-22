@@ -8,28 +8,33 @@ trigger:
 
 pool:
   Default
- 
+
 steps:
-- script: |
-    cd $(System.DefaultWorkingDirectory)
-    dir
+- stage: Deploy_Prod
+  jobs:
+  - deployment: Deploy_Prod
+    displayName: Deploy_Prod
+    environment: 'PROD'
+    - script: |
+        cd $(System.DefaultWorkingDirectory)
+        dir
 
-- script: |
-    python -m pip install --upgrade pip
-    python -m pip install --upgrade setuptools wheel pytest
-    python -m pip install -r $(System.DefaultWorkingDirectory)\requirements.txt
-  displayName: "Install dependencies"
-  
-- script: |
-    python -m pytest tests
-  displayName: "Run Unit Tests"
+    - script: |
+        python -m pip install --upgrade pip
+        python -m pip install --upgrade setuptools wheel pytest
+        python -m pip install -r $(System.DefaultWorkingDirectory)\requirements.txt
+      displayName: "Install dependencies"
+      
+    - script: |
+        python -m pytest tests
+      displayName: "Run Unit Tests"
 
-- script: |
-    python setup.py bdist_wheel
-  displayName: "Make wheel"
+    - script: |
+        python setup.py bdist_wheel
+      displayName: "Make wheel"
 
-- publish: $(System.DefaultWorkingDirectory)/dist
-  artifact: PANDASETL_PACKAGE
-- publish: $(System.DefaultWorkingDirectory)/notebooks
-  artifact: PANDASETL_NOTEBOOKS
+    - publish: $(System.DefaultWorkingDirectory)/dist
+      artifact: PANDASETL_PACKAGE
+    - publish: $(System.DefaultWorkingDirectory)/notebooks
+      artifact: PANDASETL_NOTEBOOKS
 
