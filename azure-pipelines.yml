@@ -9,12 +9,12 @@ trigger:
 pool:
   Default
 
-steps:
 - stage: Deploy_Prod
   jobs:
   - deployment: Deploy_Prod
     displayName: Deploy_Prod
     environment: 'PROD'
+    steps:
     - script: |
         cd $(System.DefaultWorkingDirectory)
         dir
