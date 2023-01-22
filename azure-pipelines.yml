@@ -11,9 +11,7 @@ stages:
   pool:
       Default
   jobs:
-  - deployment: 'Deploy_Prod'
-    displayName: 'Deploy_Prod'
-    environment: PROD 
+
   - job: 'Build_Artifact' 
 
     steps:
