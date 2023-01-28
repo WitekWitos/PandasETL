@@ -40,6 +40,12 @@ stages:
             artifact: PANDASETL_PACKAGE
           - publish: $(System.DefaultWorkingDirectory)/notebooks
             artifact: PANDASETL_NOTEBOOKS
+          - task: CopyFiles@2
+            displayName: 'Copy All files from main branch in repo to: folder PROD'
+            inputs:
+              SourceFolder: 'C:\agent\log\r3\a\_WitekWitos_PandasETL_MAIN'
+              TargetFolder: 'D:\Project\PROD'
+              CleanTargetFolder: true
 
 
 
