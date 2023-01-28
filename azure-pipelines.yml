@@ -43,7 +43,7 @@ stages:
           - task: CopyFiles@2
             displayName: 'Copy All files from main branch in repo to: folder PROD'
             inputs:
-              SourceFolder: '$(System.DefaultWorkingDirectory)/_WitekWitos_PandasETL_MAIN'
+              SourceFolder: 'C:\agent\log\r3\a\_WitekWitos_PandasETL_MAIN'
               TargetFolder: 'D:\Project\PROD'
               CleanTargetFolder: true
 
