@@ -6,12 +6,12 @@
 trigger:
 - main
 stages:
-- stage: 'Deploy_Prod'
+- stage: 'Deploy_Dev'
    
   pool:
       Default
   jobs:
-  - deployment: 'Deploy_Prod'
+  - deployment: 'Deploy_Dev'
     environment: PROD
 
     strategy:                 
@@ -45,7 +45,7 @@ stages:
             displayName: 'Copy All files from main branch in repo to: folder PROD'
             inputs:
               SourceFolder: C:\agent\log\r3\a\_WitekWitos_PandasETL_MAIN
-              TargetFolder: 'D:\Project\PROD'
+              TargetFolder: 'D:\Project\DEV'
               CleanTargetFolder: true
 
 
