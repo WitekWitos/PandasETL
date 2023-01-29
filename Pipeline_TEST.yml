@@ -5,15 +5,52 @@
 
 trigger:
 - main
+stages:
+- stage: 'Deploy_TEST'
+   
+  pool:
+      Default
+  jobs:
+  - deployment: 'Deploy_TEST'
+    environment: TEST
 
-pool:
-    Default
+    strategy:                 
+      runOnce:            
+        deploy: 
+          steps:       
+          - script: |
+              cd $(System.DefaultWorkingDirectory)
+              dir
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+          - script: |
+              python -m pip install --upgrade pip
+              python -m pip install --upgrade setuptools wheel pytest
+              python -m pip install -r $(System.DefaultWorkingDirectory)\requirements.txt
+            displayName: "Install dependencies"
+            
+          - script: |
+              python -m pytest tests
+            displayName: "Run Unit Tests"
 
-- script: |
-    cd $(System.DefaultWorkingDirectory)
-    dir
-  displayName: 'Run a multi-line script'
+          - script: |
+              python setup.py bdist_wheel
+            displayName: "Make wheel"
+          
+          - publish: $(System.DefaultWorkingDirectory)/dist
+            artifact: PANDASETL_PACKAGE
+          - publish: $(System.DefaultWorkingDirectory)/notebooks
+            artifact: PANDASETL_NOTEBOOKS
+
+          - task: CopyFiles@2
+            displayName: 'Copy All files from main branch in repo to: folder TEST'
+            inputs:
+              SourceFolder: C:\agent\log\r3\a\_WitekWitos_PandasETL_MAIN
+              TargetFolder: 'D:\Project\TEST'
+              CleanTargetFolder: true
+
+
+
+
+
+   
+  
