@@ -12,7 +12,7 @@ stages:
       Default
   jobs:
   - deployment: 'Deploy_Dev'
-    environment: PROD
+    environment: DEV
 
     strategy:                 
       runOnce:            
