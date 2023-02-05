@@ -32,11 +32,11 @@ stages:
               python setup.py bdist_wheel
             displayName: "Make wheel"         
           - publish: $(System.DefaultWorkingDirectory)/dist
-            artifact: PANDASETL_PACKAGE
-            displayName: "Publish Package Artifact"
+            artifact: PANDASETL_PACKAGE_DEV
+            displayName: "Publish Package Artifact DEV"
           - publish: $(System.DefaultWorkingDirectory)/notebooks
-            artifact: PANDASETL_NOTEBOOKS
-            displayName: "Publish Notebooks Artifact"
+            artifact: PANDASETL_NOTEBOOKS_DEV
+            displayName: "Publish Notebooks Artifact DEV" 
 
           - task: CopyFiles@2
             displayName: 'Deployement to DEV'
@@ -77,11 +77,11 @@ stages:
             displayName: "Make wheel"
           
           - publish: $(System.DefaultWorkingDirectory)/dist
-            artifact: PANDASETL_PACKAGE
-            displayName: "Publish Package Artifact"
+            artifact: PANDASETL_PACKAGE_TEST
+            displayName: "Publish Package Artifact TEST"
           - publish: $(System.DefaultWorkingDirectory)/notebooks
-            artifact: PANDASETL_NOTEBOOKS
-            displayName: "Publish Notebooks Artifact"
+            artifact: PANDASETL_NOTEBOOKS_TEST
+            displayName: "Publish Notebooks Artifact TEST"
 
           - task: CopyFiles@2
             displayName: 'Deployement to TEST'
@@ -124,11 +124,11 @@ stages:
             displayName: "Make wheel"
           
           - publish: $(System.DefaultWorkingDirectory)/dist
-            artifact: PANDASETL_PACKAGE
-            displayName: "Publish Package Artifact"
+            artifact: PANDASETL_PACKAGE_PROD
+            displayName: "Publish Package Artifact PROD"
           - publish: $(System.DefaultWorkingDirectory)/notebooks
-            artifact: PANDASETL_NOTEBOOKS
-            displayName: "Publish Notebooks Artifact"
+            artifact: PANDASETL_NOTEBOOKS_PROD
+            displayName: "Publish Notebooks Artifact PROD"
 
           - task: CopyFiles@2
             displayName: 'Deployement to PROD'
