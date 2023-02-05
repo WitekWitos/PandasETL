@@ -5,14 +5,54 @@
 
 trigger:
 - main
+
 stages:
-- stage: 'Deploy_Prod'
+- stage: 'Deploy_DEV'
+  dependsOn: []
    
   pool:
       Default
   jobs:
-  - deployment: 'Deploy_Prod'
-    environment: PROD
+  - deployment: 'Deploy_DEV'
+    environment: DEV
+
+    strategy:                 
+      runOnce:            
+        deploy: 
+          steps:       
+          - script: |
+              python -m pip install --upgrade pip
+              python -m pip install --upgrade setuptools wheel pytest
+              python -m pip install -r $(System.DefaultWorkingDirectory)\requirements.txt
+            displayName: "Install dependencies"   
+          - script: |
+              python -m pytest tests
+            displayName: "Run Unit Tests"
+          - script: |
+              python setup.py bdist_wheel
+            displayName: "Make wheel"         
+          - publish: $(System.DefaultWorkingDirectory)/dist
+            artifact: PANDASETL_PACKAGE_DEV
+            displayName: "Publish Package Artifact DEV"
+          - publish: $(System.DefaultWorkingDirectory)/notebooks
+            artifact: PANDASETL_NOTEBOOKS_DEV
+            displayName: "Publish Notebooks Artifact DEV" 
+
+          - task: CopyFiles@2
+            displayName: 'Deployement to DEV'
+            inputs:
+              SourceFolder: $(System.DefaultWorkingDirectory)
+              TargetFolder: 'D:\Project\DEV'
+              CleanTargetFolder: true
+
+- stage: 'Deploy_TEST'
+  dependsOn: []
+   
+  pool:
+      Default
+  jobs:
+  - deployment: 'Deploy_TEST'
+    environment: TEST
 
     strategy:                 
       runOnce:            
@@ -37,12 +77,61 @@ stages:
             displayName: "Make wheel"
           
           - publish: $(System.DefaultWorkingDirectory)/dist
-            artifact: PANDASETL_PACKAGE
+            artifact: PANDASETL_PACKAGE_TEST
+            displayName: "Publish Package Artifact TEST"
           - publish: $(System.DefaultWorkingDirectory)/notebooks
-            artifact: PANDASETL_NOTEBOOKS
+            artifact: PANDASETL_NOTEBOOKS_TEST
+            displayName: "Publish Notebooks Artifact TEST"
 
           - task: CopyFiles@2
-            displayName: 'Copy All files from main branch in repo to: folder PROD'
+            displayName: 'Deployement to TEST'
+            inputs:
+              SourceFolder: $(System.DefaultWorkingDirectory)
+              TargetFolder: 'D:\Project\TEST'
+              CleanTargetFolder: true
+
+- stage: 'Deploy_Prod'
+  dependsOn: []   
+  pool:
+      Default
+  jobs:
+
+  - deployment: 'Deploy_Prod'
+    environment: PROD
+    
+
+    strategy:
+                     
+      runOnce:           
+        deploy: 
+          steps:       
+          - script: |
+              cd $(System.DefaultWorkingDirectory)
+              dir
+
+          - script: |
+              python -m pip install --upgrade pip
+              python -m pip install --upgrade setuptools wheel pytest
+              python -m pip install -r $(System.DefaultWorkingDirectory)\requirements.txt
+            displayName: "Install dependencies"
+            
+          - script: |
+              python -m pytest tests
+            displayName: "Run Unit Tests"
+
+          - script: |
+              python setup.py bdist_wheel
+            displayName: "Make wheel"
+          
+          - publish: $(System.DefaultWorkingDirectory)/dist
+            artifact: PANDASETL_PACKAGE_PROD
+            displayName: "Publish Package Artifact PROD"
+          - publish: $(System.DefaultWorkingDirectory)/notebooks
+            artifact: PANDASETL_NOTEBOOKS_PROD
+            displayName: "Publish Notebooks Artifact PROD"
+
+          - task: CopyFiles@2
+            displayName: 'Deployement to PROD'
             inputs:
               SourceFolder: $(System.DefaultWorkingDirectory)
               TargetFolder: 'D:\Project\PROD'
