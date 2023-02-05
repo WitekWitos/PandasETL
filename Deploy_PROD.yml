@@ -21,30 +21,25 @@ stages:
         deploy: 
           steps:       
           - script: |
-              cd $(System.DefaultWorkingDirectory)
-              dir
-
-          - script: |
               python -m pip install --upgrade pip
               python -m pip install --upgrade setuptools wheel pytest
               python -m pip install -r $(System.DefaultWorkingDirectory)\requirements.txt
-            displayName: "Install dependencies"
-            
+            displayName: "Install dependencies"   
           - script: |
               python -m pytest tests
             displayName: "Run Unit Tests"
-
           - script: |
               python setup.py bdist_wheel
-            displayName: "Make wheel"
-          
+            displayName: "Make wheel"         
           - publish: $(System.DefaultWorkingDirectory)/dist
             artifact: PANDASETL_PACKAGE
+            displayName: "Publish Package Artifact"
           - publish: $(System.DefaultWorkingDirectory)/notebooks
             artifact: PANDASETL_NOTEBOOKS
+            displayName: "Publish Notebooks Artifact"
 
           - task: CopyFiles@2
-            displayName: 'Copy All files from main branch in repo to: folder DEV'
+            displayName: 'Deployement to DEV'
             inputs:
               SourceFolder: $(System.DefaultWorkingDirectory)
               TargetFolder: 'D:\Project\DEV'
@@ -83,11 +78,13 @@ stages:
           
           - publish: $(System.DefaultWorkingDirectory)/dist
             artifact: PANDASETL_PACKAGE
+            displayName: "Publish Package Artifact"
           - publish: $(System.DefaultWorkingDirectory)/notebooks
             artifact: PANDASETL_NOTEBOOKS
+            displayName: "Publish Notebooks Artifact"
 
           - task: CopyFiles@2
-            displayName: 'Copy All files from main branch in repo to: folder TEST'
+            displayName: 'Deployement to TEST'
             inputs:
               SourceFolder: $(System.DefaultWorkingDirectory)
               TargetFolder: 'D:\Project\TEST'
@@ -128,11 +125,13 @@ stages:
           
           - publish: $(System.DefaultWorkingDirectory)/dist
             artifact: PANDASETL_PACKAGE
+            displayName: "Publish Package Artifact"
           - publish: $(System.DefaultWorkingDirectory)/notebooks
             artifact: PANDASETL_NOTEBOOKS
+            displayName: "Publish Notebooks Artifact"
 
           - task: CopyFiles@2
-            displayName: 'Copy All files from main branch in repo to: folder PROD'
+            displayName: 'Deployement to PROD'
             inputs:
               SourceFolder: $(System.DefaultWorkingDirectory)
               TargetFolder: 'D:\Project\PROD'
